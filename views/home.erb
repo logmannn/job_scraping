@@ -1,0 +1,24 @@
+<h1>Stores</h1>
+
+<% @stores.each do |store| %>
+  <h3><a href='/stores/<%= store.id %>'><%= store.name %></a></h3>
+<% end %>
+
+<form action="/" method="post">
+  <input type="hidden" name="country" value="Norway">
+  <input name="store_name" class="form-control" type="text" placeholder="Store name">
+  <button type="submit" class="btn btn-primary">Add Store</button>
+</form>
+
+<br>
+<h1>Brands</h1>
+
+<% @brands.each do |brand| %>
+  <h3><%= brand.name %>, <%= brand.price %></a></h3>
+<% end %>
+
+<form action="/" method="post">
+  <input name="brand_name" class="form-control" type="text" placeholder="Brand name">
+  <input name="brand_price" class="form-control" type="text" placeholder="Brand price">
+  <button type="submit" class="btn btn-primary">Add Brand</button>
+</form>

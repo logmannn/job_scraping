@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: job_search_development
+
+test:
+  adapter: postgresql
+  database: job_search_test
