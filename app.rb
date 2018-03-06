@@ -66,7 +66,7 @@ end
 get("/scrape") do
   city = "portland"
   state = ("or").upcase
-  query = "ruby+developer"
+  query = "javascript developer"
   @link = "https://www.indeed.com/jobs?q=#{query}&l=#{city}%2C+#{state}"
   Job.scrape_indeed(@link)
 

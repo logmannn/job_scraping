@@ -6,9 +6,15 @@ class Job < ActiveRecord::Base
     page = Nokogiri::HTML(open("#{link}"))
     #amount of jobs to get page amounts
     number_of_jobs = page.css('#searchCount').to_s
+    if number_of_jobs == ""
+      return false;
+    end
     number_of_jobs =~ /Page 1 of (.*?) jobs/
     number_of_jobs = $1.gsub(/\,/, '')
-    number_of_pages = (number_of_jobs.to_i/14)
+    if number_of_jobs.to_i == 0
+      return false
+    end
+    number_of_pages = (number_of_jobs.to_i/14) + 1
     number_of_pages.times do |i|
       page = Nokogiri::HTML(open("#{link}&start=#{i*10}"))
       page.css('.row').each do |job|
@@ -25,6 +31,10 @@ class Job < ActiveRecord::Base
   def self.scrape_craigslist(link)
     page = Nokogiri::HTML(open("#{link}"))
     #amount of jobs to get page amount
+    number_of_jobs = (page.css('.totalcount').first).to_s
+    if number_of_jobs == ""
+      return false;
+    end
     amount_of_jobs = (((page.css('.totalcount').first).text).to_s).to_i
     amount_of_pages = ((amount_of_jobs.to_f)/120).ceil
     amount_of_pages.times do |i|
