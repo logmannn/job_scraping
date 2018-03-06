@@ -77,6 +77,6 @@ get("/scrape") do
 end
 
 get("/home") do
-
+  @meetups = Meetup.all
   erb(:home)
 end
