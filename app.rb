@@ -66,13 +66,12 @@ end
 get("/scrape") do
   city = "portland"
   state = ("or").upcase
-  @query = "ruby"
-  @link = "https://www.indeed.com/jobs?q=#{@query}&l=#{city}%2C+#{state}"
+  query = "ruby+developer"
+  @link = "https://www.indeed.com/jobs?q=#{query}&l=#{city}%2C+#{state}"
   Job.scrape_indeed(@link)
 
-  @link = "https://#{city}.craigslist.org/search/jjj?query=#{@query}&s=0&sort=rel"
+  @link = "https://#{city}.craigslist.org/search/jjj?query=#{query}&s=0&sort=rel"
   Job.scrape_craigslist(@link)
-
   erb(:scrape)
 end
 
