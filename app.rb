@@ -1,6 +1,5 @@
 require("bundler/setup")
 require("pry")
-# require("./lib/meetup.rb")
 Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
@@ -13,7 +12,7 @@ end
 
 meetup_api = MeetupApi.new
 
-get('/') do
+get('/meetup_test') do
   Meetup.where(pinned: false).destroy_all
 
   params = { category: '34',
@@ -24,7 +23,6 @@ get('/') do
     format: 'json',
     page: '50'}
   @events = meetup_api.open_events(params)
-
 
   @events["results"].each do |event|
     meetup_attributes = {}
