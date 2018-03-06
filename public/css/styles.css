@@ -1,0 +1,20 @@
+.pin {
+  top: -16px;
+  visibility:hidden;
+  font-size:30px;
+  cursor:pointer;
+  position: relative;
+}
+.pin:before {
+  content: url(../img/pin-blank.png);
+  position: absolute;
+  visibility:visible;
+}
+.pin:checked:before {
+  content: url(../img/pin-black.png);
+  position: absolute;
+}
+
+.inline {
+  display: inline;
+}

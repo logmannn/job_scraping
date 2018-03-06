@@ -6,25 +6,35 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-
-
 MeetupClient.configure do |config|
   config.api_key = "48216d5851293b1f446a235e597c3b"
 end
 
 meetup_api = MeetupApi.new
 
-get('/meetup_test') do
-  Meetup.where(pinned: false).destroy_all
+get("/home") do
+  @meetups = Meetup.all
+  erb(:home)
+end
 
-  params = { category: '34',
+post('/home') do
+  Meetup.all.each do |meetup|
+    if params["#{meetup.id}"] == "pinned"
+      meetup.update({pinned: true})
+    else
+      meetup.destroy
+    end
+  end
+  # Meetup.where(pinned: false).destroy_all
+
+  meetup_params = { category: '34',
     city: 'Portland',
     state: 'OR',
     country: 'US',
     status: 'upcoming',
     format: 'json',
     page: '50'}
-  @events = meetup_api.open_events(params)
+  @events = meetup_api.open_events(meetup_params)
 
   @events["results"].each do |event|
     meetup_attributes = {}
@@ -55,12 +65,10 @@ get('/meetup_test') do
       meetup_attributes["group_id"] = meetup_group.id
     end
 
-    meetup_attributes["pinned"] = false
-
     Meetup.create(meetup_attributes)
   end
   @meetups = Meetup.all
-  erb(:meetup_test)
+  erb(:home)
 end
 
 get("/scrape") do
@@ -73,9 +81,4 @@ get("/scrape") do
   @link = "https://#{city}.craigslist.org/search/jjj?query=#{query}&s=0&sort=rel"
   Job.scrape_craigslist(@link)
   erb(:scrape)
-end
-
-get("/home") do
-  @meetups = Meetup.all
-  erb(:home)
 end
