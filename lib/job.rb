@@ -1,6 +1,15 @@
 require ('pry')
 
 class Job < ActiveRecord::Base
+
+  def indeed_link(params)
+    "https://www.indeed.com/jobs?q=#{params[:query]}&l=#{params[:city]}%2C+#{params[:state]}&explvl=#{params[:level]}&radius=#{params[:distance]}"
+  end
+
+  def craigslist_link(params)
+    "https://#{params[:city]}.craigslist.org/search/jjj?query=#{params[:query]}&sort=rel&search_distance=#{params[:distance]}"
+  end
+
   def self.scrape_indeed(link)
 
     page = Nokogiri::HTML(open("#{link}"))
