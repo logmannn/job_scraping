@@ -64,8 +64,15 @@ get('/meetup_test') do
 end
 
 get("/scrape") do
-  @link = "https://www.indeed.com/jobs?q=jr+developer&l=Portland%2C+OR"
-  Job.scrape(@link)
+  city = "portland"
+  state = ("or").upcase
+  @query = "ruby"
+  @link = "https://www.indeed.com/jobs?q=#{@query}&l=#{city}%2C+#{state}"
+  Job.scrape_indeed(@link)
+
+  @link = "https://#{city}.craigslist.org/search/jjj?query=#{@query}&s=0&sort=rel"
+  Job.scrape_craigslist(@link)
+
   erb(:scrape)
 end
 
