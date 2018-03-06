@@ -68,3 +68,8 @@ get("/scrape") do
   Job.scrape(@link)
   erb(:scrape)
 end
+
+get("/home") do
+
+  erb(:home)
+end
