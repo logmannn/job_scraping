@@ -1,29 +1,39 @@
-<div class"jumbotron">
-  <h2><p class="text-center">Welcome to Job Search! The first step to your full stack career.</p></h2>
-</div>
-
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4 well">
-      <form action="/" method="post">
-        <div class="form-group">
-          <h3>Select your website options:</h3>
-          <input type="checkbox" name="website" value="indeed">Indeed<br>
-          <input type="checkbox" name="website" value="meetup">MeetUp<br>
-          <input type="checkbox" name="website" value="craiglist">CraigList<br>
-        </div>
+  <div class="jumbotron">
+    <h2 class="text-center">Welcome to Job Search! The first step to your full stack career.</h2>
+  </div>
 
-        <div class="form-group">
-          <h3>Please input your options:</h3>
-          <input name="location" class="form-control" type="text" placeholder="Location: City or Zip Code">
-          <input name="keyword" class="form-control" type="text" placeholder="Search keyword, job title or company">
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg">Start Search</button>
-      </form>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="well">
+        <form action="/" method="post">
+          <div class="form-group">
+            <h3>Select your website options:</h3>
+            <input type="checkbox" name="website" value="indeed">Indeed<br>
+            <input type="checkbox" name="website" value="meetup">MeetUp<br>
+            <input type="checkbox" name="website" value="craiglist">CraigList<br>
+          </div>
+
+          <div class="form-group">
+            <h3>Please input your options:</h3>
+            <input name="location" class="form-control" type="text" placeholder="Location: City or Zip Code">
+            <input name="keyword" class="form-control" type="text" placeholder="Search keyword, job title or company">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Start Search</button>
+        </form>
+      </div>
     </div>
 
     <div class="col-md-8">
-      <h2><p class="text-center">Results</p></h2>
+      <div class="well">
+        <h3 class="text-center">Jobs & CL</h3>
+      </div>
+      <div class="well">
+        <h3 class="text-center">Meetups</h3>
+        <% @meetups.each do |meetup| %>
+          <h4><%= meetup.name %></h4>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
