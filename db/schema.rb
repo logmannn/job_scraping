@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305230833) do
+ActiveRecord::Schema.define(version: 20180306174604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "job_meetup_associations", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "meetup_id"
+    t.float "distance"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "summary"
+    t.string "company"
+    t.string "days_posted"
+    t.string "location"
+  end
 
   create_table "meetup_groups", force: :cascade do |t|
     t.string "group_url"
