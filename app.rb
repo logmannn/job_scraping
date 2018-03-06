@@ -12,12 +12,12 @@ end
 
 meetup_api = MeetupApi.new
 
-get("/home") do
+get('/') do
   @meetups = Meetup.all
   erb(:home)
 end
 
-post('/home') do
+post('/') do
   Meetup.all.each do |meetup|
     if params["#{meetup.id}"] == "pinned"
       meetup.update({pinned: true})
@@ -69,6 +69,11 @@ post('/home') do
   end
   @meetups = Meetup.all
   erb(:home)
+end
+
+get('/meetups/:meetup_id') do
+  @meetup = Meetup.find(params[:meetup_id])
+  erb(:meetup_detail)
 end
 
 get("/scrape") do
