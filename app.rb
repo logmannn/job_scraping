@@ -82,3 +82,8 @@ get("/scrape") do
 
   erb(:scrape)
 end
+
+get("/home") do
+
+  erb(:home)
+end

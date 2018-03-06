@@ -1,24 +1,29 @@
-<h1>Stores</h1>
+<div class"jumbotron">
+  <h2><p class="text-center">Welcome to Job Search! The first step to your full stack career.</p></h2>
+</div>
 
-<% @stores.each do |store| %>
-  <h3><a href='/stores/<%= store.id %>'><%= store.name %></a></h3>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 well">
+      <form action="/" method="post">
+        <div class="form-group">
+          <h3>Select your website options:</h3>
+          <input type="checkbox" name="website" value="indeed">Indeed<br>
+          <input type="checkbox" name="website" value="meetup">MeetUp<br>
+          <input type="checkbox" name="website" value="craiglist">CraigList<br>
+        </div>
 
-<form action="/" method="post">
-  <input type="hidden" name="country" value="Norway">
-  <input name="store_name" class="form-control" type="text" placeholder="Store name">
-  <button type="submit" class="btn btn-primary">Add Store</button>
-</form>
+        <div class="form-group">
+          <h3>Please input your options:</h3>
+          <input name="location" class="form-control" type="text" placeholder="Location: City or Zip Code">
+          <input name="keyword" class="form-control" type="text" placeholder="Search keyword, job title or company">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Start Search</button>
+      </form>
+    </div>
 
-<br>
-<h1>Brands</h1>
-
-<% @brands.each do |brand| %>
-  <h3><%= brand.name %>, <%= brand.price %></a></h3>
-<% end %>
-
-<form action="/" method="post">
-  <input name="brand_name" class="form-control" type="text" placeholder="Brand name">
-  <input name="brand_price" class="form-control" type="text" placeholder="Brand price">
-  <button type="submit" class="btn btn-primary">Add Brand</button>
-</form>
+    <div class="col-md-8">
+      <h2><p class="text-center">Results</p></h2>
+    </div>
+  </div>
+</div>
