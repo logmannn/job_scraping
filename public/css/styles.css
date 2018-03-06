@@ -14,3 +14,7 @@
   content: url(../img/pin-black.png);
   position: absolute;
 }
+
+.inline {
+  display: inline;
+}

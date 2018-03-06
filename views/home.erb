@@ -25,17 +25,18 @@
 
       <div class="col-md-8">
         <div class="well">
-          <h2 class="text-center">Your Jobs:</h2>
+          <h3 class="text-center">Your Jobs:</h3>
         </div>
         <div class="well">
-          <h2 class="text-center">Suggested Meetups:</h2>
+          <h3 class="text-center">Suggested Meetups:</h3>
           <div class="form-group">
           <% @meetups.first(15).each do |meetup| %>
             <% time = Time.at(meetup.time / 1000) %>
-            <h4>
-              <input class="pin" type="checkbox" name="pinned_meetups" value="<%= meetup.id %>">
-              <a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a> <%= time.strftime("%m/%d") %>
+            <h4 class="inline">
+              <input class="pin" type="checkbox" name="<%= meetup.id %>" value="pinned"<%= if meetup.pinned then "checked" end %>>
+              <a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a>
             </h4>
+            <p class="inline"><%= time.strftime("%m/%d") %>, <%= meetup.venue_city %><p>
           <% end %>
         </div>
         </div>

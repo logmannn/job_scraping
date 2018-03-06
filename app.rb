@@ -18,7 +18,14 @@ get("/home") do
 end
 
 post('/home') do
-  Meetup.where(pinned: false).destroy_all
+  Meetup.all.each do |meetup|
+    if params["#{meetup.id}"] == "pinned"
+      meetup.update({pinned: true})
+    else
+      meetup.destroy
+    end
+  end
+  # Meetup.where(pinned: false).destroy_all
 
   meetup_params = { category: '34',
     city: 'Portland',
@@ -57,8 +64,6 @@ post('/home') do
 
       meetup_attributes["group_id"] = meetup_group.id
     end
-
-    meetup_attributes["pinned"] = false
 
     Meetup.create(meetup_attributes)
   end
