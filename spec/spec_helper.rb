@@ -13,8 +13,14 @@ Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
   config.after(:each) do
-    Meetup.all().each() do |shoe_store|
-      shoe_store.destroy()
+    Meetup.all().each() do |meetup|
+      meetup.destroy()
+    end
+
+    MeetupGroup.all().each() do |meetup_group|
+      meetup_group.destroy()
     end
   end
 end
+
+#ADD SHOULDA MATCHER

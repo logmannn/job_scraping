@@ -1,8 +1,6 @@
-class Meetup < ActiveRecord::Base
-  belongs_to(:meetup_group)
+class MeetupGroup < ActiveRecord::Base
+  has_many(:meetups)
   validates(:name, uniqueness: true)
-
-
 end
 #   before_save(:upcase_name)
 #   validates(:name, presence: true)
