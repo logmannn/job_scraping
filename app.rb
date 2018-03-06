@@ -6,10 +6,10 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-MEETUP_API_KEY = "48216d5851293b1f446a235e597c3b"
+
 
 MeetupClient.configure do |config|
-  config.api_key = MEETUP_API_KEY
+  config.api_key = "48216d5851293b1f446a235e597c3b"
 end
 
 meetup_api = MeetupApi.new
@@ -65,20 +65,6 @@ end
 
 get("/scrape") do
   @link = "https://www.indeed.com/jobs?q=jr+developer&l=Portland%2C+OR"
-  @page = Nokogiri::HTML(open("#{@link}"))
-
-  #amount of jobs to get page amounts
-  @amount_of_jobs = @page.css('#searchCount').to_s
-  @amount_of_jobs =~ /Page 1 of (.*?) jobs/
-  @amount_of_jobs = $1.gsub(/\,/, '')
-  @amount_of_pages = @amount_of_jobs.to_i/14
-
-  @page_stuff = []
-  @amount_of_pages.times do |i|
-    @page = Nokogiri::HTML(open("#{@link}&start=#{i*10}"))
-    @page_stuff.push(@page.css('.row'))
-    puts i
-  end
-
+  Job.scrape(@link)
   erb(:scrape)
 end
