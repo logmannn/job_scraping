@@ -6,15 +6,18 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-
-
 MeetupClient.configure do |config|
   config.api_key = "48216d5851293b1f446a235e597c3b"
 end
 
 meetup_api = MeetupApi.new
 
-get('/meetup_test') do
+get("/home") do
+  @meetups = Meetup.all
+  erb(:home)
+end
+
+post('/home') do
   Meetup.where(pinned: false).destroy_all
 
   meetup_params = { category: '34',
@@ -60,7 +63,7 @@ get('/meetup_test') do
     Meetup.create(meetup_attributes)
   end
   @meetups = Meetup.all
-  erb(:meetup_test)
+  erb(:home)
 end
 
 get("/scrape") do
@@ -74,9 +77,4 @@ get("/scrape") do
   Job.scrape_craigslist(@link)
 
   erb(:scrape)
-end
-
-get("/home") do
-  @meetups = Meetup.all
-  erb(:home)
 end
