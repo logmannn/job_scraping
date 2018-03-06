@@ -17,14 +17,14 @@ meetup_api = MeetupApi.new
 get('/meetup_test') do
   Meetup.where(pinned: false).destroy_all
 
-  params = { category: '34',
+  meetup_params = { category: '34',
     city: 'Portland',
     state: 'OR',
     country: 'US',
     status: 'upcoming',
     format: 'json',
     page: '50'}
-  @events = meetup_api.open_events(params)
+  @events = meetup_api.open_events(meetup_params)
 
   @events["results"].each do |event|
     meetup_attributes = {}
