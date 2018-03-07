@@ -1,3 +1,5 @@
+#https://www.indeed.com/jobs?q=css&l=portland%2C+OR&explvl=entry_level&radius=15
+
 require("bundler/setup")
 require("pry")
 require("open-uri")

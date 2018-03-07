@@ -36,10 +36,12 @@
   display: inline;
 }
 
-.hidden {
+.citation {
   display: none;
 }
 
-.result {
-  margin-bottom: 50px;
-}
+select {width:100%}
+
+input[type=checkbox] {margin-bottom:20px;}
+
+.form-group .col-xs-2 {padding-right:5px;padding-left:5px;}
