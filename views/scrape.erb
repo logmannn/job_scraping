@@ -1,5 +1,5 @@
 <%i=0%>
 <% Job.all.each do |page| %>
-  <%=i%> <%=page.title%><br>
+  <%=i%> <%=page.title%><br><%=page.link%><br>
   <%i=i+1%>
 <% end %>

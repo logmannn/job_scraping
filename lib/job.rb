@@ -11,8 +11,8 @@ class Job < ActiveRecord::Base
   end
 
   def self.scrape_indeed(link)
-
     page = Nokogiri::HTML(open("#{link}"))
+
     #amount of jobs to get page amounts
     number_of_jobs = page.css('#searchCount').to_s
     if number_of_jobs == ""
@@ -32,7 +32,9 @@ class Job < ActiveRecord::Base
         summary = (job.css('.summary').text).gsub(/^\s+|\s+$|\s+(?=\s)/, '')
         days_posted = (job.css('.date').text).gsub(/^\s+|\s+$|\s+(?=\s)/, '')
         location = (job.css('.location').text).gsub(/^\s+|\s+$|\s+(?=\s)/, '')
-        Job.create({:title => title, :company => company, :summary => summary, :days_posted => days_posted, :location => location})
+        link = "https://www.indeed.com" + job.css('a')[0]["href"]
+        # job.css('a')[0]["href"]
+        Job.create({:title => title, :company => company, :summary => summary, :days_posted => days_posted, :location => location, :link => link})
       end
     end
   end
@@ -54,8 +56,8 @@ class Job < ActiveRecord::Base
         summary = ""
         days_posted = (job.css('.result-date').text).gsub(/[\(\)]/, '')
         location = (job.css('.result-hood').text).gsub(/[\(\)]/, '')
-        Job.create({:title => title, :company => company, :summary => summary, :days_posted => days_posted, :location => location})
-
+        link = job.css('a')[0]["href"]
+        Job.create({:title => title, :company => company, :summary => summary, :days_posted => days_posted, :location => location, :link => link})
       end
     end
   end
