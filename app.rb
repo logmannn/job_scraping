@@ -14,6 +14,26 @@ end
 
 meetup_api = MeetupApi.new
 
+get('/test') do
+  meetup_params = { group_id: 22875093,
+    format: 'json',
+    page: '50'}
+  @members = meetup_api.members(meetup_params)
+
+  @members["results"].each do |member|
+    member_attributes = {}
+    member_attributes["name"] = member["name"]
+    member_attributes["city"] = member["city"]
+    member_attributes["state"] = member["state"]
+    member_attributes["country"] = member["country"]
+    # member_attributes["linkedin_user_id"] = member["description"]
+    MeetupMember.create(member_attributes)
+  end
+  @meetup_members = MeetupMember.all
+  binding.pry
+  erb(:test)
+end
+
 get('/') do
   @meetups = Meetup.all
   @jobs = Job.all

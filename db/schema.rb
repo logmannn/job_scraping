@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20180307175126) do
     t.string "name"
   end
 
+  create_table "meetup_members", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.integer "country"
+    t.integer "linkedin_user_id"
+  end
+
   create_table "meetups", force: :cascade do |t|
     t.integer "utc_offset"
     t.string "event_url"
