@@ -36,9 +36,11 @@ end
 
 get('/') do
   @meetups = Meetup.all
+  @jobs = Job.all
   erb(:home)
 end
 
+#do job stuff in here?
 post('/') do
   Meetup.all.each do |meetup|
     if params["#{meetup.id}"] == "pinned"
@@ -46,6 +48,13 @@ post('/') do
     else
       meetup.destroy
     end
+    languages = params[:item].inspect
+    location = params.fetch("location")
+    distance = params.fetch("distance")
+    level = params.fetch("level")
+
+
+
   end
   # Meetup.where(pinned: false).destroy_all
 
@@ -105,7 +114,7 @@ end
 get("/scrape") do
   city = "portland"
   state = ("or").upcase
-  query = "javascript developer"
+  query = "javascript+developer"
   @link = "https://www.indeed.com/jobs?q=#{query}&l=#{city}%2C+#{state}"
   Job.scrape_indeed(@link)
 
