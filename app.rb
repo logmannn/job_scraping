@@ -78,6 +78,10 @@ get('/meetups/:meetup_id') do
   erb(:meetup_detail)
 end
 
+get('/jobs/:job_id') do
+  erb(:job_detail)
+end
+
 get("/scrape") do
   city = "portland"
   state = ("or").upcase

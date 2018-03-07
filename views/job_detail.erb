@@ -1,31 +1,26 @@
 <form action="/" method="get">
   <div class="well">
-    <h2 class="text-center"><%= @meetup.name %> <button type="submit" class="btn btn-primary btn-sm">Home</button></h2>
-    <h4 class="text-center"><em><%= Time.at(@meetup.time / 1000).strftime("%A %B %-d, %l:%M %P") %> ~ <%= @meetup.venue_city %></em></h4>
+    <h2 class="text-center">Job Name <button type="submit" class="btn btn-primary btn-sm">Home</button></h2>
+    <h4 class="text-center"><em>Company name</em></h4>
   </div>
   <div class="row">
     <div class="col-md-6">
-
       <div class="well">
-        <h3 class="text-center">About the meetup</h3>
-        <p class="inline"><%= @meetup.description %></p>
-        <br>
-        <h4><a href="<%= @meetup.event_url %>">See entry at Meetup.com</a><h4>
+        <h3 class="text-center">About the Job</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lom.</p>
       </div>
-      <div class="well">
-        <h3 class="text-center">About the venue</h3>
-        <h4><%= @meetup.venue_name %></h4>
-        <p><%= @meetup.venue_address_1 %>, <%= @meetup.venue_city %>, <%= @meetup.venue_state%> <%= @meetup.venue_zip%></p>
 
+      <div class="well">
+        <h3 class="text-center">About the company</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
 
     <div class="col-md-6">
       <div class="well">
-        <h3 class="text-center">Why it's suggested</h3>
+        <h3 class="text-center">Something else</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud et enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
   </div>
-</div>
 </form>
