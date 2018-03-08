@@ -1,3 +1,13 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+
 .pin {
   top: -10px;
   visibility:hidden;
@@ -42,7 +52,11 @@ input[type=checkbox] {
   padding-right: 14px;
 }
 
-label {font-weight:normal}
+label {
+  font-weight:normal;
+  min-width: 100px;
+  text-align: left
+}
 
 .jobs-well {
   height: 449px;
@@ -102,8 +116,10 @@ body { margin:0px; }
   background-image: url(https://i.imgur.com/Mp3ebNH.png);
   background-position: bottom left;
   background-repeat: no-repeat;
-  min-height: 330px;
+  min-height: 300px;
   margin-top: 150px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .yieldwrap {
@@ -142,6 +158,32 @@ select {
   color: white;
   font-weight: bold;
   text-decoration: none
+}
+
+.main-button {
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.col-md-6 {padding: 0 0 0 0;}
+
+.c {
+  margin-left: 15px;
+}
+
+.well {
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+select {color:black}
+button {color:black;}
+
+.row .col-xs-2{
+  background-color: rgba(245, 245, 245, 0.3);
+  padding: 0px;
+  border: -5px;
 }
 
 /*@media only screen and (max-width: 345px) {
