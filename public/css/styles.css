@@ -61,6 +61,25 @@ label {font-weight:normal}
   overflow-y: scroll
 }
 
+.logo {
+  font-family: 'Pathway Gothic One', sans-serif;
+  color: #FEC72E;
+  font-size: 3.5em;
+  padding: 20px;
+  margin: 0;
+}
+
+body { margin:0px; }
+
+
+.header {
+  width: 100%;
+  top: 0px;
+  position: relative;
+  background: #101010;
+  background-image: url('https://thefulldomeblog.files.wordpress.com/2013/11/example_render.jpg')
+}
+
 /*@media only screen and (max-width: 345px) {
     .form-group .row .col-xs-4 {
       display: inline-block;

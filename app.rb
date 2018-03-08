@@ -118,7 +118,7 @@ post('/') do
   #indeed
 
   languages.each do |languages|
-    puts languages
+
     URI::encode(languages)
     @link = "https://www.indeed.com/jobs?q=#{languages}+developer&l=#{city}#{level}#{distance_indeed}"
     Job.scrape_indeed(@link)
