@@ -127,9 +127,9 @@ post('/') do
       @link = "https://www.indeed.com/jobs?q=#{languages}+developer&l=#{city}#{level}#{distance_indeed}"
       Job.scrape_indeed(@link)
 
-      # #craigslist
-      # @link = "https://#{city}.craigslist.org/search/jjj?#{craigslist_zip}&query=#{query}&s=0#{distance_craigslist}&sort=rel"
-      # Job.scrape_craigslist(@link)
+      #craigslist
+      @link = "https://#{city}.craigslist.org/search/jjj?#{craigslist_zip}&query=#{query}&s=0#{distance_craigslist}&sort=rel"
+      Job.scrape_craigslist(@link)
     end
   else
     @error_message = "Please select at least one language"
