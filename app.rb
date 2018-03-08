@@ -115,7 +115,6 @@ post('/') do
 
     Meetup.create(meetup_attributes)
   end
-
   Job.all.each do |job|
     if params["job_#{job.id}"] == "pinned"
       job.update({pinned: true})
