@@ -86,14 +86,13 @@
       <div class="well">
         <h3 class="text-center">Suggested Meetups</h3>
 
-        <div class="form-group">
+        <div class="form-group jobs-well">
         <% @meetups.first(15).each do |meetup| %>
           <% time = Time.at(meetup.time / 1000) %>
-            <h4 class="inline">
-              <input class="pin" type="checkbox" name="meetup_<%= meetup.id %>" value="pinned" <%= if meetup.pinned then "checked" end %>>
-              <a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a>
-            </h4>
-            <p class="inline"><%= time.strftime("%-m/%-d") %>, <%= meetup.venue_city %></p><br>
+            <h4 class="inline"><input class="pin" type="checkbox" name="meetup_<%= meetup.id %>" value="pinned" <%= if meetup.pinned then "checked" end %>>
+              <a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a></h4><br>
+            <p class="inline"><%= Time.at(meetup.time / 1000).strftime("%A %B %-d | %l:%M %P") %> | <%= meetup.venue_city %>, <%= meetup.venue_state%></p><br>
+            <hr>
         <% end %>
         </div>
       </div>
