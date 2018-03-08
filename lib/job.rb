@@ -34,7 +34,7 @@ class Job < ActiveRecord::Base
         location = (job.css('.location').text).gsub(/^\s+|\s+$|\s+(?=\s)/, '')
         link = "https://www.indeed.com" + job.css('a')[0]["href"]
         # job.css('a')[0]["href"]
-        Job.create({:title => title, :company => company, :summary => summary, :days_posted => days_posted, :location => location, :link => link})
+        Job.create({:title => title, :company => company, :summary => summary, :days_posted => days_posted, :location => location, :link => link, :pinned => false})
       end
     end
   end

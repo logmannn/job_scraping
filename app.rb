@@ -42,7 +42,7 @@ end
 #do job stuff in here?
 post('/') do
   Meetup.all.each do |meetup|
-    if params["#{meetup.id}"] == "pinned"
+    if params["meetup_#{meetup.id}"] == "pinned"
       meetup.update({pinned: true})
     else
       meetup.destroy
@@ -92,9 +92,12 @@ post('/') do
     Meetup.create(meetup_attributes)
   end
 
-  #delete jobs here?
   Job.all.each do |job|
+    if params["job_#{job.id}"] == "pinned"
+      job.update({pinned: true})
+    else
       job.destroy
+    end
   end
 
   #jobs

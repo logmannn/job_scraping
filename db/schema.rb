@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307175126) do
+ActiveRecord::Schema.define(version: 20180308153842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180307175126) do
     t.string "days_posted"
     t.string "location"
     t.string "link"
+    t.boolean "pinned"
   end
 
   create_table "meetup_groups", force: :cascade do |t|

@@ -1,5 +1,5 @@
 .pin {
-  top: -16px;
+  top: -10px;
   visibility:hidden;
   font-size:30px;
   cursor:pointer;
@@ -12,23 +12,6 @@
 }
 .pin:checked:before {
   content: url(../img/pin-black.png);
-  position: absolute;
-}
-
-.pin-big {
-  top: -16px;
-  visibility:hidden;
-  font-size:30px;
-  cursor:pointer;
-  position: relative;
-}
-.pin-big:before {
-  content: url(../img/pin-big-blank.png);
-  position: absolute;
-  visibility:visible;
-}
-.pin-big:checked:before {
-  content: url(../img/pin-big-black.png);
   position: absolute;
 }
 
