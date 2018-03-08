@@ -47,14 +47,37 @@ post('/') do
     else
       meetup.destroy
     end
-
   end
   # Meetup.where(pinned: false).destroy_all
 
+  meetup_locations_array = {
+    "portland" => ["portland", "OR", "us"],
+    "bend" => ["bend", "or", "us"],
+    "corvallis/albany" => ["corvallis", "or", "us"],
+    "east oregon" => ["ontario", "or", "us"],
+    "eugene" => ["eugene", "or", "us"],
+    "klamath falls" => ["klamath falls", "or", "us"],
+    "medford-ashland" => ["medford", "or", "us"],
+    "oregon coast" => ["gresham", "or", "us"],
+    "roseburg" => ["roseburg", "or", "us"],
+    "salem" => ["salem", "or", "us"],
+    "bellingham" => ["bellingham", "wa", "us"],
+    "kennewick-pasco-richland" => ["richland", "wa", "us"],
+    "moses lake" => ["seattle", "wa", "us"],
+    "olympic peninsula" => ["portland", "wa", "us"],
+    "pullman / moscow" => ["pullman", "wa", "us"],
+    "seattle-tacoma" => ["seattle", "wa", "us"],
+    "skagit / island / SJI" => ["skagit", "wa", "us"],
+    "spokane / coeur d'alene" => ["spokane", "wa", "us"],
+    "wenatchee" => ["wenatchee", "wa", "us"],
+    "yakima" => ["yakima", "wa", "us"]}
+
+  meetup_location_array = meetup_locations_array[params.fetch("location")]
+
   meetup_params = { category: '34',
-    city: 'Portland',
-    state: 'OR',
-    country: 'US',
+    city: meetup_location_array[0],
+    state: meetup_location_array[1],
+    country: meetup_location_array[2],
     status: 'upcoming',
     format: 'json',
     page: '50'}
