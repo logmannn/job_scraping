@@ -152,6 +152,8 @@ select {
   text-decoration: none;
   cursor: pointer;
   text-align: center;
+  margin-left: 15px;
+  margin-top: 30px;
 }
 
 .advanced-options-button:hover {
@@ -181,9 +183,17 @@ select {color:black}
 button {color:black;}
 
 .row .col-xs-2{
+  padding: 5px;
+}
+
+.border-margin {
+  /*border: 2px rgba(245, 245, 245, 0.8) solid;*/
   background-color: rgba(245, 245, 245, 0.3);
-  padding: 0px;
-  border: -5px;
+  min-height: 61px;
+}
+
+.pin+a {
+  color: #FEC72E
 }
 
 /*@media only screen and (max-width: 345px) {
