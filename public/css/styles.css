@@ -28,7 +28,7 @@ input[type=checkbox] {
 }
 
 .container-fluid {
-  max-width: 1000px;
+  max-width: 100%;
   margin-top: 10px;
 }
 
@@ -62,6 +62,12 @@ body { margin:0px; }
   background: #101010;
   background-image: url('https://thefulldomeblog.files.wordpress.com/2013/11/example_render.jpg')
 }
+
+.error{
+  color: #cc0000;
+}
+
+
 
 /*@media only screen and (max-width: 345px) {
     .form-group .row .col-xs-4 {
