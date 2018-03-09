@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 20180308153842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "job_meetup_associations", force: :cascade do |t|
-    t.integer "job_id"
-    t.integer "meetup_id"
-    t.float "distance"
-  end
-
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "summary"
