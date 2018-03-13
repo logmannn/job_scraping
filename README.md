@@ -47,9 +47,9 @@
 ### Install Postgres.  Open another terminal window, go to home directory ($ cd ~)...
 * Install Postgres ($ gem install pg)
 * Open Postgres ($ psql)
-*rake db:create
-*rake db:migrate
-*ruby app.rb
+* rake db:create
+* rake db:migrate
+* ruby app.rb
 
 ## Known Bugs
 ### TBD
